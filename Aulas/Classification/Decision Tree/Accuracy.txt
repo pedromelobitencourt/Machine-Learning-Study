@@ -1,0 +1,2 @@
+Credit_base: 98.2%
+Census_base: 81.04%
