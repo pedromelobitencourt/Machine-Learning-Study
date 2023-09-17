@@ -1,0 +1,13 @@
+Credit_base:
+    trees_qnt = 10 -> 96.8%
+    trees_qnt = 40 -> 98.4%
+    trees_qnt = 70 -> 98.2%
+
+
+Census_base:
+    trees_qnt = 10 -> 83.91%
+    trees_qnt = 70 -> 85.02%
+    trees_qnt = 90 -> 84.97%
+    trees_qnt = 40 -> 84.77%
+    trees_qnt = 50 -> 84.81%
+    trees_qnt = 100 -> 85.07%
