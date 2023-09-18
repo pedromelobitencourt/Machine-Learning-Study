@@ -1,0 +1,7 @@
+Credit_base:
+    n_neighbors = 5: 98.6%
+    n_neighbors = 10: 97.4%
+
+Census_base:
+    n_neighbors = 5: 82.2%
+    n_neighbors = 10: 82.91%
