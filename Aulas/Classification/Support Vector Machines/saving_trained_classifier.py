@@ -10,7 +10,7 @@ Y = np.concatenate((Y_trainment, Y_test))
 
 # After all analysis
 
-svm_classifier = SVC(C=2.0, kernel='rbf')
+svm_classifier = SVC(C=2.0, kernel='rbf', probability=True)
 # Final model: We can train all data base
 svm_classifier.fit(X, Y)
 
