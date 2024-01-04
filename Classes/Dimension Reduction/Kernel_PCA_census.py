@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.decomposition import PCA
+from sklearn.decomposition import KernelPCA
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
@@ -37,16 +37,14 @@ x_census = census_scaler.fit_transform(x_census)
 x_training, x_test, y_training, y_test = train_test_split(x_census, y_census, test_size=0.15, random_state=0)
 print(x_training.shape, x_test.shape)
 
-## PCA Technique
+## Kernel PCA Technique
 
-pca = PCA(n_components=8)
+kernel_pca = KernelPCA(n_components=8, kernel='rbf')
 
-x_training_pca = pca.fit_transform(x_training)
-x_test_pca = pca.transform(x_test)
+x_training_pca = kernel_pca.fit_transform(x_training)
+x_test_pca = kernel_pca.transform(x_test)
 
 print(x_training_pca.shape, x_test_pca.shape)
-
-print(pca.explained_variance_ratio_) # the n_components explain n% of the variables
 
 # 84.7% with the previous data
 random_forest_census = RandomForestClassifier(criterion='entropy', min_samples_leaf=1, min_samples_split=5, n_estimators=40)
@@ -54,4 +52,4 @@ random_forest_census.fit(x_training_pca, y_training)
 
 forecasts = random_forest_census.predict(x_test_pca)
 accuracy = accuracy_score(y_test, forecasts)
-print('accuracy:', accuracy) # 83.44%
+print('accuracy:', accuracy) # 82.29%
